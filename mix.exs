@@ -45,7 +45,10 @@ defmodule CritistryApi.Mixfile do
       {:absinthe_plug, "~> 1.4.0"},
       {:plug_cowboy, "~> 1.0"},
       {:jason, "~> 1.0"},
-      {:cors_plug, "~> 2.0"}
+      {:cors_plug, "~> 2.0"},
+      {:ex_machina, "~> 2.2"},
+      {:elixilorem, "~> 0.0.1"},
+      {:dataloader, "~> 1.0.0"}
     ]
   end
 
