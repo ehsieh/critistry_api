@@ -7,7 +7,7 @@ defmodule CritistryApi.Crits.CirtRequest do
     field :description, :string
     field :image, :string
     field :title, :string
-    field :user_id, :id
+    belongs_to :user, CritistryApi.Accounts.User
 
     timestamps()
   end

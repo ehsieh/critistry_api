@@ -5,8 +5,9 @@ defmodule CritistryApi.Crits.CritPost do
 
   schema "crit_posts" do
     field :post_text, :string
-    field :crit_request_id, :id
-    field :user_id, :id
+    belongs_to :crit_request, CritistryApi.Crits.CritRequest
+    belongs_to :user, CritistryApi.Accounts.User
+    
 
     timestamps()
   end

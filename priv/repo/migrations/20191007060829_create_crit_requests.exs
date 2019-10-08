@@ -4,7 +4,7 @@ defmodule CritistryApi.Repo.Migrations.CreateCritRequests do
   def change do
     create table(:crit_requests) do
       add :title, :string
-      add :description, :string
+      add :description, :text
       add :image, :string
       add :user_id, references(:users, on_delete: :nothing)
 
