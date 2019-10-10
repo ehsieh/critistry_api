@@ -1,4 +1,4 @@
-defmodule CritistryApi.Crits.CirtRequest do
+defmodule CritistryApi.Crits.CritRequest do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -8,6 +8,7 @@ defmodule CritistryApi.Crits.CirtRequest do
     field :image, :string
     field :title, :string
     belongs_to :user, CritistryApi.Accounts.User
+    has_many :crit_posts, CritistryApi.Crits.CritPost
 
     timestamps()
   end

@@ -6,7 +6,7 @@ defmodule CritistryApi.Crits do
   import Ecto.Query, warn: false
   alias CritistryApi.Repo
 
-  alias CritistryApi.Crits.CirtRequest
+  alias CritistryApi.Crits.CritRequest
 
   @doc """
   Returns the list of crit_requests.
@@ -14,92 +14,92 @@ defmodule CritistryApi.Crits do
   ## Examples
 
       iex> list_crit_requests()
-      [%CirtRequest{}, ...]
+      [%CritRequest{}, ...]
 
   """
   def list_crit_requests do
-    Repo.all(CirtRequest)
+    Repo.all(CritRequest)
   end
 
   @doc """
-  Gets a single cirt_request.
+  Gets a single crit_request.
 
-  Raises `Ecto.NoResultsError` if the Cirt request does not exist.
+  Raises `Ecto.NoResultsError` if the crit request does not exist.
 
   ## Examples
 
-      iex> get_cirt_request!(123)
-      %CirtRequest{}
+      iex> get_crit_request!(123)
+      %CritRequest{}
 
-      iex> get_cirt_request!(456)
+      iex> get_crit_request!(456)
       ** (Ecto.NoResultsError)
 
   """
-  def get_cirt_request!(id), do: Repo.get!(CirtRequest, id)
+  def get_crit_request!(id), do: Repo.get!(CritRequest, id)
 
   @doc """
-  Creates a cirt_request.
+  Creates a crit_request.
 
   ## Examples
 
-      iex> create_cirt_request(%{field: value})
-      {:ok, %CirtRequest{}}
+      iex> create_crit_request(%{field: value})
+      {:ok, %CritRequest{}}
 
-      iex> create_cirt_request(%{field: bad_value})
+      iex> create_crit_request(%{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_cirt_request(attrs \\ %{}) do
-    %CirtRequest{}
-    |> CirtRequest.changeset(attrs)
+  def create_crit_request(attrs \\ %{}) do
+    %CritRequest{}
+    |> CritRequest.changeset(attrs)
     |> Repo.insert()
   end
 
   @doc """
-  Updates a cirt_request.
+  Updates a crit_request.
 
   ## Examples
 
-      iex> update_cirt_request(cirt_request, %{field: new_value})
-      {:ok, %CirtRequest{}}
+      iex> update_crit_request(crit_request, %{field: new_value})
+      {:ok, %CritRequest{}}
 
-      iex> update_cirt_request(cirt_request, %{field: bad_value})
+      iex> update_crit_request(crit_request, %{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_cirt_request(%CirtRequest{} = cirt_request, attrs) do
-    cirt_request
-    |> CirtRequest.changeset(attrs)
+  def update_crit_request(%CritRequest{} = crit_request, attrs) do
+    crit_request
+    |> CritRequest.changeset(attrs)
     |> Repo.update()
   end
 
   @doc """
-  Deletes a CirtRequest.
+  Deletes a CritRequest.
 
   ## Examples
 
-      iex> delete_cirt_request(cirt_request)
-      {:ok, %CirtRequest{}}
+      iex> delete_crit_request(crit_request)
+      {:ok, %CritRequest{}}
 
-      iex> delete_cirt_request(cirt_request)
+      iex> delete_crit_request(crit_request)
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_cirt_request(%CirtRequest{} = cirt_request) do
-    Repo.delete(cirt_request)
+  def delete_crit_request(%CritRequest{} = crit_request) do
+    Repo.delete(crit_request)
   end
 
   @doc """
-  Returns an `%Ecto.Changeset{}` for tracking cirt_request changes.
+  Returns an `%Ecto.Changeset{}` for tracking crit_request changes.
 
   ## Examples
 
-      iex> change_cirt_request(cirt_request)
-      %Ecto.Changeset{source: %CirtRequest{}}
+      iex> change_crit_request(crit_request)
+      %Ecto.Changeset{source: %CritRequest{}}
 
   """
-  def change_cirt_request(%CirtRequest{} = cirt_request) do
-    CirtRequest.changeset(cirt_request, %{})
+  def change_crit_request(%CritRequest{} = crit_request) do
+    CritRequest.changeset(crit_request, %{})
   end
 
   alias CritistryApi.Crits.CritPost

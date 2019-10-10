@@ -9,6 +9,9 @@ defmodule CritistryApi.Accounts.User do
     field :password_hash, :string
     field :username, :string
 
+    has_many :crit_requests, CritistryApi.Crits.CritRequest
+    has_many :crit_posts, CritistryApi.Crits.CritPost
+
     timestamps()
   end
 
