@@ -4,6 +4,15 @@ defmodule CritistryApi.Mixfile do
   def project do
     [
       app: :critistry_api,
+      releases: [
+        critistry_api: [
+          include_erts: true,
+          include_executables_for: [:unix],
+          applications: [
+            runtime_tools: :permanent
+          ]
+        ]
+      ],
       version: "0.0.1",
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env),
