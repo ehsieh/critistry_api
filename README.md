@@ -1,3 +1,5 @@
+[![pipeline status](https://gitlab.com/ehsieh1/critistry_api/badges/master/pipeline.svg)](https://gitlab.com/ehsieh1/critistry_api/commits/master)
+
 # CritistryApi
 
 To start your Phoenix server:
