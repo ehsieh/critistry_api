@@ -6,6 +6,8 @@
 /*.ez
 /rel
 
+cloud_sql_proxy
+
 # Generated on crash by the VM
 erl_crash.dump
 

@@ -8,6 +8,14 @@ defmodule CritistryApi.Crits do
 
   alias CritistryApi.Crits.CritRequest
 
+  def data() do
+    Dataloader.Ecto.new(Repo, query: &query/2)
+  end
+
+  def query(queryable, _params) do
+    queryable
+  end
+  
   @doc """
   Returns the list of crit_requests.
 

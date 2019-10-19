@@ -12,4 +12,4 @@
 
 import CritistryApi.Factory
 
-insert_list(40, :user, %{})
+insert_list(40, :user)

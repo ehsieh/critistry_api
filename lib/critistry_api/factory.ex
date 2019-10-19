@@ -4,9 +4,8 @@ defmodule CritistryApi.Factory do
     def user_factory do
         %CritistryApi.Accounts.User{
             username: sequence(:username, &"user-#{&1}"),
-            email: sequence(:username, &"user-#{&1}@gmail.com"),
-            crit_requests: build_list(10, :crit_request),
-            crit_posts: build_list(10, :crit_post)
+            email: sequence(:email, &"user-#{&1}@gmail.com"),
+            crit_requests: build_list(Enum.random(10..20), :crit_request)          
         }    
     end
 
@@ -22,5 +21,9 @@ defmodule CritistryApi.Factory do
         %CritistryApi.Crits.CritPost{
             post_text: Elixilorem.paragraph,            
         }
+    end
+
+    def with_crit_requests(user, num_requests) do
+        build_list(num_requests, :crit_request, user: user)        
     end
 end

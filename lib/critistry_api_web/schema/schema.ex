@@ -2,9 +2,23 @@ defmodule CritistryApiWeb.Schema do
 
   use Absinthe.Schema
   import_types CritistryApiWeb.Schema.ContentTypes
-
+  
+  alias CritistryApi.{Accounts, Crits}
   alias CritistryApiWeb.Resolvers
 
+  def plugins do
+    [Absinthe.Middleware.Dataloader | Absinthe.Plugin.defaults]
+  end  
+
+  def context(ctx) do
+    loader =
+      Dataloader.new
+      |> Dataloader.add_source(Accounts, Accounts.data())
+      |> Dataloader.add_source(Crits, Crits.data())
+
+    Map.put(ctx, :loader, loader)
+  end
+  
   query do
     @desc "Get all users"
     field :users, list_of(:user) do
