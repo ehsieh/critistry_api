@@ -16,6 +16,17 @@ defmodule CritistryApi.Accounts do
     queryable
   end
 
+  def authenticate(username, password) do
+    user = Repo.get_by(User, username: username)
+
+    with %{password_hash: password_hash} <- user,
+         true <- Pbkdf2.verify_pass(password, password_hash) do
+      {:ok, user}
+    else
+      _ -> :error
+    end
+  end
+
   @doc """
   Returns the list of users.
 
@@ -30,20 +41,13 @@ defmodule CritistryApi.Accounts do
   end
 
   @doc """
-  Gets a single user.
+  Returns the user with the given `id`.
 
-  Raises `Ecto.NoResultsError` if the User does not exist.
-
-  ## Examples
-
-      iex> get_user!(123)
-      %User{}
-
-      iex> get_user!(456)
-      ** (Ecto.NoResultsError)
-
+  Returns `nil` if the user does not exist.
   """
-  def get_user!(id), do: Repo.get!(User, id)
+  def get_user(id) do
+    Repo.get(User, id)
+  end
 
   @doc """
   Creates a user.

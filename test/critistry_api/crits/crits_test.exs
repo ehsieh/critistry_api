@@ -7,7 +7,11 @@ defmodule CritistryApi.CritsTest do
     alias CritistryApi.Crits.CritRequest
 
     @valid_attrs %{description: "some description", image: "some image", title: "some title"}
-    @update_attrs %{description: "some updated description", image: "some updated image", title: "some updated title"}
+    @update_attrs %{
+      description: "some updated description",
+      image: "some updated image",
+      title: "some updated title"
+    }
     @invalid_attrs %{description: nil, image: nil, title: nil}
 
     def crit_request_fixture(attrs \\ %{}) do

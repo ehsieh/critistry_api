@@ -2,12 +2,10 @@ defmodule CritistryApi.Crits.CritPost do
   use Ecto.Schema
   import Ecto.Changeset
 
-
   schema "crit_posts" do
-    field :post_text, :string
-    belongs_to :crit_request, CritistryApi.Crits.CritRequest
-    belongs_to :user, CritistryApi.Accounts.User
-    
+    field(:post_text, :string)
+    belongs_to(:crit_request, CritistryApi.Crits.CritRequest)
+    belongs_to(:user, CritistryApi.Accounts.User)
 
     timestamps()
   end

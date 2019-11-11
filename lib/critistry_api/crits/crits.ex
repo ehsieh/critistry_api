@@ -15,7 +15,7 @@ defmodule CritistryApi.Crits do
   def query(queryable, _params) do
     queryable
   end
-  
+
   @doc """
   Returns the list of crit_requests.
 
