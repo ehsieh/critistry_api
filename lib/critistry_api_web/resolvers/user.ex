@@ -1,5 +1,6 @@
 defmodule CritistryApiWeb.Resolvers.User do
   alias CritistryApi.Accounts
+  alias CritistryApiWeb.Schema.ChangesetErrors
 
   def list_users(_parent, _args, _resolution) do
     {:ok, Accounts.list_users()}
@@ -10,7 +11,8 @@ defmodule CritistryApiWeb.Resolvers.User do
       {:error, changeset} ->
         {
           :error,
-          message: "Could not create user"
+          message: "Could not create user",
+          details: ChangesetErrors.error_details(changeset)
         }
 
       {:ok, user} ->
@@ -21,8 +23,12 @@ defmodule CritistryApiWeb.Resolvers.User do
 
   def signin(_, %{username: username, password: password}, _) do
     case Accounts.authenticate(username, password) do
-      :error ->
-        {:error, "Invalid credentials"}
+      {:error, field, reason} ->
+        {
+          :error, 
+          field: field,
+          message: reason
+        }
 
       {:ok, user} ->
         token = CritistryApiWeb.AuthToken.sign(user)
