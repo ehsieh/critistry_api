@@ -21,10 +21,10 @@ defmodule CritistryApi.Accounts.User do
     user
     |> cast(attrs, required_fields)
     |> validate_required(required_fields)
-    |> validate_length(:username, min: 5)
-    |> validate_length(:password, min: 8)
     |> unique_constraint(:username)
     |> unique_constraint(:email)
+    |> validate_length(:username, min: 5)
+    |> validate_length(:password, min: 8)    
     |> hash_password()
   end
 
