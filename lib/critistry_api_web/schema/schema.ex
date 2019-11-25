@@ -4,7 +4,7 @@ defmodule CritistryApiWeb.Schema do
 
   alias CritistryApi.{Accounts, Crits}
   alias CritistryApiWeb.Resolvers
-  alias CritistryApiWeb.Middleware
+  alias CritistryApiWeb.Schema.Middleware
 
   def plugins do
     [Absinthe.Middleware.Dataloader | Absinthe.Plugin.defaults()]

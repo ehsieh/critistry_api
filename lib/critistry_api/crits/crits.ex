@@ -5,6 +5,7 @@ defmodule CritistryApi.Crits do
 
   import Ecto.Query, warn: false
   alias CritistryApi.Repo
+  alias CritistryApi.Accounts.User
 
   alias CritistryApi.Crits.CritRequest
 
@@ -57,10 +58,12 @@ defmodule CritistryApi.Crits do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_crit_request(attrs \\ %{}) do
+  def create_crit_request(%User{} = user, attrs \\ %{}) do
     %CritRequest{}
     |> CritRequest.changeset(attrs)
+    |> Ecto.Changeset.put_assoc(:user, user)
     |> Repo.insert()
+    |> IO.inspect
   end
 
   @doc """
