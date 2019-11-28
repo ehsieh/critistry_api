@@ -27,7 +27,9 @@ defmodule CritistryApi.Crits do
 
   """
   def list_crit_requests do
-    Repo.all(CritRequest)
+    #Repo.all(CritRequest)
+    q = from c in CritRequest, order_by: [desc: c.inserted_at]
+    Repo.all(q)
   end
 
   @doc """
