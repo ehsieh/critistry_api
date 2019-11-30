@@ -31,8 +31,7 @@ defmodule CritistryApiWeb.Schema do
       resolve(&Resolvers.CritRequest.list_crit_requests/3)
     end
 
-    desc("Get all crit posts")
-
+    @desc "Get all crit posts"
     field :crit_posts, list_of(:crit_post) do
       resolve(&Resolvers.CritPost.list_crit_posts/3)
     end
@@ -40,6 +39,12 @@ defmodule CritistryApiWeb.Schema do
     @desc "Get the currently signed-in user"
     field :me, :user do
       resolve(&Resolvers.User.me/3)
+    end
+
+    @desc "Get crit request details"
+    field :crit_request, :crit_request do
+      arg :id, non_null(:string)
+      resolve &Resolvers.CritRequest.get_crit_request/3
     end
   end
 
