@@ -5,7 +5,7 @@ defmodule CritistryApi.Factory do
     %CritistryApi.Accounts.User{
       username: sequence(:username, &"user-#{&1}"),
       email: sequence(:email, &"user-#{&1}@gmail.com"),
-      crit_requests: build_list(Enum.random(1..5), :crit_request)
+      crit_requests: build_list(Enum.random(1..4), :crit_request)
     }
   end
 
@@ -15,7 +15,8 @@ defmodule CritistryApi.Factory do
     %CritistryApi.Crits.CritRequest{
       image: sequence(:group_image, &"#{image_url}/crit-images/crit-image-#{&1}.jpg"),
       title: Elixilorem.sentence(),
-      description: Elixilorem.paragraph()
+      description: Elixilorem.paragraph(),
+      crit_posts: build_list(Enum.random(1..4), :crit_post)
     }
   end
 
