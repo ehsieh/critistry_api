@@ -43,14 +43,14 @@ defmodule CritistryApiWeb.Schema do
 
     @desc "Get crit request details"
     field :crit_request, :crit_request do
-      arg :id, non_null(:string)
-      resolve &Resolvers.CritRequest.get_crit_request/3
+      arg(:id, non_null(:string))
+      resolve(&Resolvers.CritRequest.get_crit_request/3)
     end
 
     @desc "Get crit post details"
     field :crit_post, :crit_post do
-      arg :id, non_null(:string)
-      resolve &Resolvers.CritPost.get_crit_post/3
+      arg(:id, non_null(:string))
+      resolve(&Resolvers.CritPost.get_crit_post/3)
     end
   end
 

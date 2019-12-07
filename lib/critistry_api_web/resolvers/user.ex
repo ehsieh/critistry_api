@@ -11,8 +11,7 @@ defmodule CritistryApiWeb.Resolvers.User do
       {:error, changeset} ->
         {
           :error,
-          message: "Could not create user",
-          details: ChangesetErrors.error_details(changeset)
+          message: "Could not create user", details: ChangesetErrors.error_details(changeset)
         }
 
       {:ok, user} ->
@@ -25,9 +24,8 @@ defmodule CritistryApiWeb.Resolvers.User do
     case Accounts.authenticate(username, password) do
       {:error, field, reason} ->
         {
-          :error, 
-          field: field,
-          message: reason
+          :error,
+          field: field, message: reason
         }
 
       {:ok, user} ->

@@ -20,14 +20,17 @@ defmodule CritistryApi.Accounts do
     user = Repo.get_by(User, username: username)
 
     case user do
-      nil -> {:error, "username", "User name not found"}
-      _ -> with %{password_hash: password_hash} <- user,
-          true <- Pbkdf2.verify_pass(password, password_hash) do
-            {:ok, user}
-          else
-            _ -> {:error, "password", "Invalid password"}
-          end
-    end    
+      nil ->
+        {:error, "username", "User name not found"}
+
+      _ ->
+        with %{password_hash: password_hash} <- user,
+             true <- Pbkdf2.verify_pass(password, password_hash) do
+          {:ok, user}
+        else
+          _ -> {:error, "password", "Invalid password"}
+        end
+    end
   end
 
   @doc """

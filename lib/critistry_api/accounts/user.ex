@@ -24,7 +24,7 @@ defmodule CritistryApi.Accounts.User do
     |> unique_constraint(:username)
     |> unique_constraint(:email)
     |> validate_length(:username, min: 5)
-    |> validate_length(:password, min: 8)    
+    |> validate_length(:password, min: 8)
     |> hash_password()
   end
 

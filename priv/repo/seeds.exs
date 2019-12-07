@@ -12,4 +12,5 @@
 
 import CritistryApi.Factory
 
-insert_list(5, :user, %{ max_requests: 4})
+insert_list(20, :user, %{ max_requests: 5})
+|> Enum.map(fn u -> insert_list(Enum.random(1..10), :crit_post, %{ request_user: u.id }) end)

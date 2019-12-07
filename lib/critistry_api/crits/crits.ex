@@ -27,8 +27,8 @@ defmodule CritistryApi.Crits do
 
   """
   def list_crit_requests do
-    #Repo.all(CritRequest)
-    q = from c in CritRequest, order_by: [desc: c.inserted_at]
+    # Repo.all(CritRequest)
+    q = from(c in CritRequest, order_by: [desc: c.inserted_at])
     Repo.all(q)
   end
 
@@ -65,7 +65,7 @@ defmodule CritistryApi.Crits do
     |> CritRequest.changeset(attrs)
     |> Ecto.Changeset.put_assoc(:user, user)
     |> Repo.insert()
-    |> IO.inspect
+    |> IO.inspect()
   end
 
   @doc """
@@ -113,6 +113,17 @@ defmodule CritistryApi.Crits do
   """
   def change_crit_request(%CritRequest{} = crit_request) do
     CritRequest.changeset(crit_request, %{})
+  end
+
+  def get_crit_request_not_by_user(user_id) do
+    Repo.all(
+      from(r in CritRequest,
+        join: u in assoc(r, :user),
+        preload: [:user],
+        where: u.id != ^user_id,
+        select: r
+      )
+    )
   end
 
   alias CritistryApi.Crits.CritPost
