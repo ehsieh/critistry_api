@@ -12,4 +12,4 @@
 
 import CritistryApi.Factory
 
-insert_list(20, :user)
+insert_list(5, :user, %{ max_requests: 4})
