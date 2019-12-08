@@ -4,9 +4,10 @@ defmodule CritistryApi.Repo.Migrations.CreateUsers do
   def change do
     create table(:users) do
       add :username, :string
+      add :avatar, :string
       add :email, :string
       add :password, :string
-      add :password_hash, :string
+      add :password_hash, :string    
 
       timestamps()
     end

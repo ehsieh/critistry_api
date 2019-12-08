@@ -7,6 +7,7 @@ defmodule CritistryApi.Accounts.User do
     field(:password, :string)
     field(:password_hash, :string)
     field(:username, :string)
+    field(:avatar, :string)
 
     has_many(:crit_requests, CritistryApi.Crits.CritRequest)
     has_many(:crit_posts, CritistryApi.Crits.CritPost)

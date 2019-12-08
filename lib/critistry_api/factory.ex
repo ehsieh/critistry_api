@@ -8,8 +8,10 @@ defmodule CritistryApi.Factory do
   alias CritistryApi.Crits
 
   def user_factory(attrs) do
+    image_url = "#{CritistryApiWeb.Endpoint.url()}/images"
     user = %User{
       username: sequence(:username, &"user-#{&1}"),
+      avatar: sequence(:avatar, &"#{image_url}/avatars/avatar-#{&1}.png"),
       email: sequence(:email, &"user-#{&1}@gmail.com"),
       crit_requests: build_list(Enum.random(1..attrs[:max_requests]), :crit_request)
     }
