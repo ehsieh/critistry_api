@@ -4,6 +4,7 @@ defmodule CritistryApi.Crits.CritPost do
 
   schema "crit_posts" do
     field(:post_text, :string)
+    field(:annotation, :string)
     belongs_to(:crit_request, CritistryApi.Crits.CritRequest)
     belongs_to(:user, CritistryApi.Accounts.User)
 
@@ -13,7 +14,7 @@ defmodule CritistryApi.Crits.CritPost do
   @doc false
   def changeset(crit_post, attrs) do
     crit_post
-    |> cast(attrs, [:post_text])
+    |> cast(attrs, [:post_text, :annotation])
     |> validate_required([:post_text])
   end
 end

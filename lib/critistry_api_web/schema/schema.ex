@@ -65,6 +65,15 @@ defmodule CritistryApiWeb.Schema do
       resolve(&Resolvers.CritRequest.create_crit_request/3)
     end
 
+    @desc "Create a crit post"
+    field :create_crit_post, :crit_post do
+      arg(:post_text, non_null(:string))
+      arg(:annotation, :string)
+      arg(:crit_request_id, non_null(:id))
+      middleware(Middleware.Authenticate)
+      resolve(&Resolvers.CritPost.create_crit_post/3)
+    end
+
     @desc "Create a user account"
     field :signup, :session do
       arg(:username, non_null(:string))

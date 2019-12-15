@@ -26,6 +26,7 @@ defmodule CritistryApiWeb.Schema.ContentTypes do
     field(:id, :id)
     field(:crit_request_id, :string)
     field(:post_text, :string)
+    field(:annotation, :string)
     field(:crit_request, non_null(:crit_request), resolve: dataloader(Crits))
     field(:user, non_null(:user), resolve: dataloader(Accounts))
   end

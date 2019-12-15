@@ -169,9 +169,10 @@ defmodule CritistryApi.Crits do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_crit_post(attrs \\ %{}) do
+  def create_crit_post(user, attrs \\ %{}) do
     %CritPost{}
     |> CritPost.changeset(attrs)
+    |> Ecto.Changeset.put_assoc(:user, user)
     |> Repo.insert()
   end
 

@@ -10,10 +10,7 @@ defmodule CritistryApiWeb.Resolvers.CritRequest do
     {:ok, Crits.get_crit_request!(id)}
   end
 
-  def create_crit_request(_, args, %{context: %{current_user: user}}) do
-    IO.inspect(user)
-    IO.inspect(args)
-
+  def create_crit_request(_, args, %{context: %{current_user: user}}) do    
     case Crits.create_crit_request(user, args) do
       {:error, changeset} ->
         {
