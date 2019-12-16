@@ -7,6 +7,7 @@ defmodule CritistryApiWeb.Resolvers.User do
   end
 
   def signup(_, args, _) do
+    args |> IO.inspect
     case Accounts.create_user(args) do
       {:error, changeset} ->
         {

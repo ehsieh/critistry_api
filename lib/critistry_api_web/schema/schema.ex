@@ -79,6 +79,7 @@ defmodule CritistryApiWeb.Schema do
       arg(:username, non_null(:string))
       arg(:email, non_null(:string))
       arg(:password, non_null(:string))
+      arg(:avatar, :string)
       resolve(&Resolvers.User.signup/3)
     end
 

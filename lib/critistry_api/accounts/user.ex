@@ -17,7 +17,8 @@ defmodule CritistryApi.Accounts.User do
 
   @doc false
   def changeset(user, attrs) do
-    required_fields = [:username, :email, :password]
+    required_fields = [:username, :email, :password, :avatar]
+    IO.inspect attrs
 
     user
     |> cast(attrs, required_fields)
@@ -27,6 +28,7 @@ defmodule CritistryApi.Accounts.User do
     |> validate_length(:username, min: 5)
     |> validate_length(:password, min: 8)
     |> hash_password()
+    |> IO.inspect
   end
 
   defp hash_password(changeset) do

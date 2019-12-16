@@ -14,7 +14,7 @@ defmodule CritistryApi.Crits.CritPost do
   @doc false
   def changeset(crit_post, attrs) do
     crit_post
-    |> cast(attrs, [:post_text, :annotation])
+    |> cast(attrs, [:post_text, :annotation, :crit_request_id])
     |> validate_required([:post_text])
   end
 end
