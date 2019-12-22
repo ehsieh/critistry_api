@@ -26,6 +26,11 @@ defmodule CritistryApiWeb.Schema do
       resolve(&Resolvers.User.list_users/3)
     end
 
+    @desc "Get default avatars"
+    field :default_avatars, list_of(:string) do
+      resolve(&Resolvers.User.default_avatars/3)    
+    end
+
     @desc "Get all crit requests"
     field :crit_requests, list_of(:crit_request) do
       resolve(&Resolvers.CritRequest.list_crit_requests/3)
