@@ -1,6 +1,7 @@
 defmodule CritistryApiWeb.Schema do
   use Absinthe.Schema
   import_types(CritistryApiWeb.Schema.ContentTypes)
+  import_types Absinthe.Plug.Types
 
   alias CritistryApi.{Accounts, Crits}
   alias CritistryApiWeb.Resolvers
@@ -65,7 +66,8 @@ defmodule CritistryApiWeb.Schema do
     field :create_crit_request, :crit_request do
       arg(:title, non_null(:string))
       arg(:description, non_null(:string))
-      arg(:image, non_null(:string))
+      arg(:thumbnail, non_null(:string))
+      arg(:file, non_null(:upload))
       middleware(Middleware.Authenticate)
       resolve(&Resolvers.CritRequest.create_crit_request/3)
     end

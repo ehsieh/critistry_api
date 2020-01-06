@@ -11,16 +11,18 @@ defmodule CritistryApiWeb.Resolvers.CritRequest do
   end
 
   def create_crit_request(_, args, %{context: %{current_user: user}}) do    
-    case Crits.create_crit_request(user, args) do
-      {:error, changeset} ->
-        {
-          :error,
-          message: "Could not create new crit request",
-          details: ChangesetErrors.error_details(changeset)
-        }
+    IO.inspect args
+    {:ok, nil}
+    #case Crits.create_crit_request(user, args) do
+    #  {:error, changeset} ->
+    #    {
+    #      :error,
+    #      message: "Could not create new crit request",
+    #      details: ChangesetErrors.error_details(changeset)
+    #    }
 
-      {:ok, crit_request} ->
-        {:ok, crit_request}
-    end
+    # {:ok, crit_request} ->
+    #    {:ok, crit_request}
+    #end
   end
 end
