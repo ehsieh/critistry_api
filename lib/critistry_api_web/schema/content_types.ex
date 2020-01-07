@@ -16,6 +16,7 @@ defmodule CritistryApiWeb.Schema.ContentTypes do
   object :crit_request do
     field(:id, :id)
     field(:image, :string)
+    field(:thumbnail, :string)
     field(:title, :string)
     field(:description, :string)
     field(:user, non_null(:user), resolve: dataloader(Accounts))

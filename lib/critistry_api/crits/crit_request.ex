@@ -5,6 +5,7 @@ defmodule CritistryApi.Crits.CritRequest do
   schema "crit_requests" do
     field(:description, :string)
     field(:image, :string)
+    field(:thumbnail, :string)
     field(:title, :string)
     belongs_to(:user, CritistryApi.Accounts.User)
     has_many(:crit_posts, CritistryApi.Crits.CritPost)
@@ -15,7 +16,7 @@ defmodule CritistryApi.Crits.CritRequest do
   @doc false
   def changeset(cirt_request, attrs) do
     cirt_request
-    |> cast(attrs, [:title, :description, :image])
+    |> cast(attrs, [:title, :description, :image, :thumbnail])
     |> validate_required([:title, :description, :image])
   end
 end
