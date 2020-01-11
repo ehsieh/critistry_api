@@ -9,6 +9,7 @@ defmodule CritistryApiWeb.Schema.ContentTypes do
     field(:id, :id)
     field(:username, :string)
     field(:avatar, :string)
+    field(:bio, :string)
     field(:crit_requests, list_of(:crit_request), resolve: dataloader(Crits))
     field(:crit_posts, list_of(:crit_post), resolve: dataloader(Crits))
   end

@@ -13,6 +13,7 @@ defmodule CritistryApi.Factory do
       username: sequence(:username, &"user-#{&1}"),
       avatar: sequence(:avatar, &"#{image_url}/avatars/avatar-#{&1}.png"),
       email: sequence(:email, &"user-#{&1}@gmail.com"),
+      bio: Elixilorem.paragraph(),
       crit_requests: build_list(Enum.random(1..attrs[:max_requests]), :crit_request)
     }
 

@@ -7,11 +7,12 @@ defmodule CritistryApi.Repo.Migrations.CreateUsers do
       add :avatar, :string
       add :email, :string
       add :password, :string
-      add :password_hash, :string    
+      add :password_hash, :string
+      add :bio, :text
 
       timestamps()
     end
-    
+
     create unique_index(:users, [:username])
     create unique_index(:users, [:email])
   end
